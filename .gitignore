@@ -1,3 +1,4 @@
 node_modules
 .grunt
 /repository/_book/
+dist/
