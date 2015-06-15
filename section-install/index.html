@@ -1,0 +1,672 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Instalação | SiGE - Documentação</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../sections/dev-docker.html" />
+    
+    
+    <link rel="prev" href="../index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1" data-basepath=".." data-revision="Mon Jun 15 2015 20:32:52 GMT-0300 (BRT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="section-install/index.html">
+            
+                
+                    <a href="../section-install/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Instalação
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sections/dev-docker.html">
+            
+                
+                    <a href="../sections/dev-docker.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Desenvolvimento usando Docker
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="dev-docker/build-pg.html">
+            
+                
+                    <a href="../dev-docker/build-pg.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Build PostgreSQL
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="dev-docker/build-php.html">
+            
+                
+                    <a href="../dev-docker/build-php.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Build PHP 5.6 FPM
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="dev-docker/up.html">
+            
+                
+                    <a href="../dev-docker/up.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Subindo o Ambiente
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="dev-docker/sige-conf.html">
+            
+                
+                    <a href="../dev-docker/sige-conf.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Configurando o SiGE
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >SiGE - Documentação</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="instala%C3%A7%C3%A3o-e-configura%C3%A7%C3%A3o">Instala&#xE7;&#xE3;o e Configura&#xE7;&#xE3;o</h1>
+<p>Programas necess&#xE1;rios:</p>
+<ul>
+<li>PostgreSQL;</li>
+<li>Apache HTTP Server: <code>sudo apt-get install apache2</code>;</li>
+<li>php5: <code>sudo apt-get install php5 php5-pgsql libapache2-mod-php5</code>;<ul>
+<li>extens&#xE3;o intl: <code>sudo apt-get install php5-intl</code>;</li>
+<li>extens&#xE3;o GD: <code>sudo apt-get install php5-gd</code>;</li>
+</ul>
+</li>
+<li>Zend Framework;</li>
+<li>git (opcional);</li>
+</ul>
+<h2 id="base-de-dados">Base de dados</h2>
+<h3 id="schema-da-base-de-dados">Schema da Base de dados</h3>
+<p>A instala&#xE7;&#xE3;o da base de dados &#xE9; feita pelo arquivo <code>ddl-schema.sql</code>. Abra o arquivo
+e defina alguns par&#xE2;metros:</p>
+<p>Encoding do servidor</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">SET</span> client_encoding = <span class="hljs-string">&apos;LATIN1&apos;</span>;</span>
+</code></pre>
+<p>ou</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">SET</span> client_encoding = <span class="hljs-string">&apos;UTF8&apos;</span>;</span>
+</code></pre>
+<p>Permiss&#xE3;o ao usu&#xE1;rio do banco de dados</p>
+<pre><code class="lang-sql">REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+<span class="hljs-operator"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">TO</span> postgres;</span>
+<span class="hljs-operator"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">PUBLIC</span>;</span>
+</code></pre>
+<p>Modifique <code>postgres</code> para seu usu&#xE1;rio.</p>
+<p>Note que o script possui <code>START TRANSACTION;</code> e <code>ROLLBACK;</code>. Fa&#xE7;a um teste inicial
+e execute o script para se certificar que tudo ir&#xE1; correr bem. Por fim substitua
+o comando <code>ROLLBACK;</code> por <code>COMMIT;</code> e execute novamente o script.</p>
+<h4 id="observa%C3%A7%C3%A3o">Observa&#xE7;&#xE3;o:</h4>
+<p>Para PostgreSQL 9.2 para tr&#xE1;s comentar a linha 12:</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">SET</span> lock_timeout = <span class="hljs-number">0</span>;</span>
+</code></pre>
+<p>Para isso basta colocar <code>--</code> no in&#xED;cio, dessa forma:</p>
+<pre><code class="lang-sql"><span class="hljs-comment">--SET lock_timeout = 0;</span>
+</code></pre>
+<p>Esse comando faz parte das vers&#xF5;es 9.3 para frente, mas n&#xE3;o prejudica o uso de vers&#xF5;es
+mais antigas.</p>
+<h3 id="dados-iniciais-do-sistema">Dados iniciais do sistema</h3>
+<p>A inser&#xE7;&#xE3;o dos dados iniciais pode ser encontrada em <code>ddl-dados-iniciais.sql</code>.
+Modifique as tabelas <code>estado, instituicao, municipio e sala</code> de acordo com sua necessidade.</p>
+<p><strong>obs.:</strong> para base de dados que usam codifica&#xE7;&#xE3;o <code>LATIN1</code> utilize o script <code>ddl-dados-iniciais-latin1.sql</code>.</p>
+<p>As outras tabelas j&#xE1; est&#xE3;o devidamente preparadas.</p>
+<p>Teste a execu&#xE7;&#xE3;o de script e remova <code>START TRANSACTION;</code> e <code>ROLLBACK;</code>.</p>
+<h3 id="criando-um-novo-encontro">Criando um novo encontro</h3>
+<p>O primeiro passo para criar um encontro, e adicionar um registro na tabela <code>encontro</code>
+da seguinte forma:</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> encontro(nome_encontro, apelido_encontro, data_inicio, data_fim,
+    periodo_submissao_inicio, periodo_submissao_fim)
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&apos;I Encontro de Software Livre&apos;</span>, <span class="hljs-string">&apos;I ESL&apos;</span>, <span class="hljs-string">&apos;2013-11-07&apos;</span>, <span class="hljs-string">&apos;2013-11-09&apos;</span>,
+    <span class="hljs-string">&apos;2013-05-01&apos;</span>, <span class="hljs-string">&apos;2013-11-06&apos;</span>);</span>
+</code></pre>
+<p><strong>obs.:</strong> a coluna <code>ativo</code> ser&#xE1; removida em breve.</p>
+<p>Depois verifique o <code>id_encontro</code> gerado e crie dois registros na tabela <code>mensagem_email</code>,
+um para cada mensagem de <code>tipo_mensagem_email</code>:</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> mensagem_email(id_encontro, id_tipo_mensagem_email,
+        mensagem, assunto, link)
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&apos;Nome: {nome}, E-mail: {email}, Senha: {senha},
+        &lt;a href=&quot;{href_link}&quot; target=&quot;_blank&quot;&gt;Clique aqui&lt;/a&gt;&apos;</span>,
+        <span class="hljs-string">&apos;I ESL - Cadastro Encontro&apos;</span>,
+        <span class="hljs-string">&apos;http://www.esl.org/login&apos;</span>);</span>
+</code></pre>
+<p><strong>obs.:</strong> Note que a <code>mensagem</code> traz elementos dentro de <code>{}</code>. Eles s&#xE3;o utilizados no PHP
+para substiruir valores reais, tornando a mensagem din&#xE2;mica.</p>
+<p>Vale lembrar que a mensagem pode ser escrita em HTML. Coloque apenas tags referentes ao <code>body</code>.</p>
+<p>Outro ponto importante &#xE9; configurar o <em>enconding</em> ao inserir um encontro e suas mensagens.
+Para isso adicione <code>SET client_encoding = &apos;LATIN1&apos;;</code> no in&#xED;cio do <em>insert</em>.</p>
+<p>Da mesma forma crie a mensagem de recupera&#xE7;&#xE3;o de senha:</p>
+<pre><code class="lang-sql"><span class="hljs-operator"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> mensagem_email(id_encontro, id_tipo_mensagem_email,
+        mensagem, assunto, link)
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&apos;Nome: {nome}, E-mail: {email}, Senha: {senha},
+        &lt;a href=&quot;{href_link}&quot; target=&quot;_blank&quot;&gt;Clique aqui&lt;/a&gt;&apos;</span>,
+        <span class="hljs-string">&apos;I ESL - Recuperar Senha&apos;</span>,
+        <span class="hljs-string">&apos;http://www.esl.org/login&apos;</span>);</span>
+</code></pre>
+<p>Por ser um exemplo, as mensagens ficaram uma muito parecida com a outra. Voc&#xEA; deve adaptar
+de acordo com seu encontro.</p>
+<p><strong>obs.:</strong> esse passo serve somente para o primeiro encontro. Os demais podem ser criados
+a partir do SiGE em <code>/adim/encontro/criar/</code>.</p>
+<h2 id="sige">SiGE</h2>
+<h3 id="zend">Zend</h3>
+<p>A vers&#xE3;o utilizada pelo SiGE &#xE9; <a href="http://framework.zend.com/downloads/latest#ZF1" title="Zend 1.12.9" target="_blank">Zend 1.12.9</a>.</p>
+<p>A instala&#xE7;&#xE3;o &#xE9; bem simples. Basta copiarmos o Zend para um diret&#xF3;rio de bibliotecas do sistema.
+Baixe o pacote Full, descompacte e siga as instru&#xE7;&#xF5;es em um terminal:</p>
+<pre><code>$ sudo su
+# mv ZendFramework-1.12.9 /usr/local/lib
+# cd /usr/local/lib
+# ln -s ZendFramework-1.12.9 zend
+</code></pre><h3 id="baixando-sige-do-github-para-desenvolvimento">Baixando SiGE do Github para desenvolvimento</h3>
+<p>Para realizar clone da &#xFA;ltima vers&#xE3;o do SiGE:</p>
+<pre><code>$ git clone https://github.com/comsolid/sige.git
+</code></pre><p><strong>obs.:</strong> &#xE9; necess&#xE1;rio instalar o git. No Ubuntu podemos instalar atrav&#xE9;s do comando:</p>
+<pre><code>$ sudo apt-get install git
+</code></pre><p><strong>obs.:</strong> instale a partir do reposit&#xF3;rio somente se voc&#xEA; est&#xE1; interessado em contribuir,
+estudar o c&#xF3;digo ou apenas testando.</p>
+<h3 id="baixando-vers%C3%A3o-est%C3%A1vel-sige">Baixando vers&#xE3;o est&#xE1;vel SiGE</h3>
+<p>Procure pela vers&#xE3;o mais atual do SiGE em:</p>
+<p><a href="https://github.com/comsolid/sige/releases" target="_blank">https://github.com/comsolid/sige/releases</a></p>
+<p>Renomeie a pasta para <code>sige</code> caso necess&#xE1;rio.</p>
+<h3 id="configurando-virtualhost">Configurando VirtualHost</h3>
+<p>Para simular um host no mundo real que utiliza Zend precisamos criar um VirtualHost no apache.
+Com o Apache devidamente instalado, crie um arquivo em <code>/etc/apache2/sites-enable/</code>
+chamado <code>sige</code>. Nele copie o seguinte conte&#xFA;do, modificando conforme necessidade:</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+   ServerName sige.local
+
+   DocumentRoot /var/www/sige/public
+   &lt;Directory &quot;/var/www/sige/public&quot;&gt;
+      AllowOverride All
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre><p>Adicionaremos o <code>ServerName</code> ao <code>/etc/hosts</code>:</p>
+<pre><code>127.0.0.1       localhost
+# adicione a linha abaixo
+127.0.0.1       sige.local
+</code></pre><p><strong>Obs.:</strong> este trecho deve ser feito apenas em ambiente de desenvolvimento.</p>
+<p>Habilite o <code>mod rewrite</code> do apache: <code>$ sudo a2enmod rewrite</code>.</p>
+<p>Reinicie o Apache: <code>$ sudo service apache2 restart</code>.</p>
+<h3 id="instalar-o-zend-no-sige">Instalar o Zend no SiGE</h3>
+<p>A instala&#xE7;&#xE3;o &#xE9; bem simples, apenas crie um link simb&#xF3;lico dentro do diret&#xF3;rio do
+projeto (daqui para frente chamadado de <code>${SiGE}</code>) em <code>${SIGE}/library</code>:</p>
+<pre><code>$ sudo su
+# cd /var/www/sige/library
+# ln -s /usr/local/lib/zend/library/Zend
+</code></pre><h4 id="observa%C3%A7%C3%A3o">Observa&#xE7;&#xE3;o:</h4>
+<p>Caso voc&#xEA; n&#xE3;o tenha permiss&#xE3;o para instalar bibliotecas no sistema, por exemplo se voc&#xEA; contratou um
+servi&#xE7;o externo, voc&#xEA; pode copiar o Zend diretamente na pasta <code>library</code> do SiGE. Fa&#xE7;a:</p>
+<pre><code>$ cp -R /caminho/para/ZendFramework1.12.9/library/Zend ${SiGE}/library
+</code></pre><p>Caso use FTP suba o diret&#xF3;rio para o mesmo local.</p>
+<p><strong>TODO</strong>: explicar instala&#xE7;&#xE3;o mpdf <a href="http://mpdf1.com/manual/index.php?tid=509" target="_blank">http://mpdf1.com/manual/index.php?tid=509</a></p>
+<h3 id="permitir-escrita-para-htmlpurifier-e-captcha">Permitir escrita para HTMLPurifier e Captcha</h3>
+<p>&#xC9; necess&#xE1;rio dar permiss&#xE3;o total a dois diret&#xF3;rios, fa&#xE7;a:</p>
+<pre><code>$ cd ${SiGE}/library/HTMLPurifier/DefinitionCache/
+$ mkdir Serializer
+$ chmod 777 Serializer/
+$ cd ${SiGE}/public/
+$ mkdir captcha
+$ chmod 777 captcha/
+</code></pre><h3 id="configurar-sige-para-ambiente-de-produ%C3%A7%C3%A3o">Configurar SiGE para ambiente de produ&#xE7;&#xE3;o</h3>
+<pre><code>$ cd ${SiGE}/public
+$ nano .htaccess
+</code></pre><p>Mude <code>SetEnv APPLICATION_ENV development</code> para <code>SetEnv APPLICATION_ENV production</code>.</p>
+<h3 id="configurar-conex%C3%A3o-com-base-de-dados">Configurar conex&#xE3;o com base de dados</h3>
+<p>Com o projeto configurado vamos editar os par&#xE2;metros de conex&#xE3;o com o PostgreSQL.
+Dentro do diret&#xF3;rio do projeto abra o arquivo <code>${SiGE}/application/configs/application.ini</code>,
+copie os dados para a se&#xE7;&#xE3;o <code>[production]</code> (cole abaixo de <code>autoloaderNamespaces[] = &quot;Sige&quot;</code>)
+e edite os par&#xE2;metros abaixo:</p>
+<pre><code class="lang-ini">resources.db.params.host     = &quot;localhost&quot;
+resources.db.params.dbname   = &quot;database&quot;
+resources.db.params.username = &quot;postgres&quot;
+resources.db.params.password = &quot;**secret**&quot;
+</code></pre>
+<h3 id="configurar-smtp-para-envio-de-e-mail">Configurar SMTP para envio de e-mail</h3>
+<p>Temos tamb&#xE9;m que configurar o envio de e-mail para validar participantes, recupera&#xE7;&#xE3;o de
+senhas, etc. Ainda no arquivo <code>${SiGE}/application/configs/application.ini</code>,
+copie o trecho a seguir e cole logo abaixo dos dados da conex&#xE3;o com o banco. Edite o trecho:</p>
+<pre><code class="lang-ini">resources.mail.transport.type = &quot;smtp&quot;; n&#xE3;o precisa editar
+resources.mail.transport.host = &quot;smtp.esl.com&quot;; servidor gmail: smtp.gmail.com
+resources.mail.transport.port = &quot;587&quot;;465
+resources.mail.transport.ssl  = &quot;tls&quot;
+resources.mail.transport.auth = &quot;login&quot;; n&#xE3;o precisa editar
+resources.mail.transport.username   = &quot;esl@esl.org&quot;;
+resources.mail.transport.password   = &quot;**secret**&quot;
+resources.mail.transport.register   = true; True by default
+resources.mail.defaultFrom.email    = &quot;esl@esl.org&quot;
+resources.mail.defaultFrom.name     = &quot;I ESL&quot;
+resources.mail.defaultReplyTo.email = &quot;esl@esl.org&quot;
+resources.mail.defaultReplyTo.name  = &quot;I ESL&quot;
+</code></pre>
+<p><strong>obs.:</strong> para a linha <code>resources.mail.transport.port</code>:</p>
+<ul>
+<li>587 is the Outgoing server (SMTP) port for IMAP. It uses a TLS encryption connection.</li>
+<li>587 &#xE9; a porta de Sa&#xED;da de servi&#xE7;o (SMTP) para IMAP. Ela usa conex&#xE3;o TLS criptografada.</li>
+<li>465 is the Outgoing server (SMTP) port for POP. It uses an SSL encryption connection.</li>
+<li>465 &#xE9; a porta de Sa&#xED;da de servi&#xE7;o (SMTP) para POP. Ela usa conex&#xE3;o SSL criptografada.</li>
+</ul>
+<p>Mais detalhes em <a href="http://framework.zend.com/manual/1.12/en/zend.application.available-resources.html#zend.application.available-resources.mail" title="Zend_Mail" target="_blank">Zend_Mail</a>.</p>
+<h3 id="configurar-encontro">Configurar Encontro</h3>
+<p>Ap&#xF3;s criar um encontro no banco de dados, temos um <code>id_encontro</code>. No arquivo
+<code>${SiGE}/application/configs/application.ini</code> edite a linha:</p>
+<pre><code class="lang-ini">encontro.codigo = 1
+</code></pre>
+<h4 id="observa%C3%A7%C3%A3o">Observa&#xE7;&#xE3;o:</h4>
+<p>Mude o valor a cada novo encontro.</p>
+<h3 id="crie-o-primeiro-usu%C3%A1rio-administrador">Crie o primeiro usu&#xE1;rio administrador</h3>
+<p>Abra o SiGE no navegador e crie um usu&#xE1;rio. Se tudo der certo um e-mail com uma
+senha padr&#xE3;o foi enviado para voc&#xEA;. Tente fazer um login.</p>
+<p>No banco de dados, na tebela <code>pessoa</code>, modifique a coluna <code>administrador</code> para <code>true</code>.</p>
+<h3 id="tradu%C3%A7%C3%A3o-i18n">Tradu&#xE7;&#xE3;o (i18n)</h3>
+<p>Para traduzir as mensagens do SiGE voc&#xEA; deve editar o arquivo <code>${SiGE}/application/Bootstrap.php</code>.
+Na fun&#xE7;&#xE3;o <code>_initTranslate</code> edite a linha:</p>
+<pre><code class="lang-php"><span class="hljs-variable">$locale</span> = <span class="hljs-string">&quot;pt_BR&quot;</span>;
+</code></pre>
+<p>Verifique as tradu&#xE7;&#xF5;es dispon&#xED;veis em <code>${SiGE}/application/langs</code>. Coloque em <code>$locale</code> o mesmo
+nome do diret&#xF3;rio da sua l&#xED;ngua padr&#xE3;o.</p>
+<p>Para traduzir as mensagens que est&#xE3;o nos arquivos Javascript abra o arquivo
+<code>${SiGE}/application/layouts/scripts/twbs3.phtml</code>.</p>
+<p>Procure a linha:</p>
+<pre><code class="lang-php"><span class="hljs-variable">$this</span>-&gt;headScript()-&gt;prependFile(<span class="hljs-variable">$this</span>-&gt;baseUrl(<span class="hljs-string">&apos;js/jed/locale/pt_BR.js&apos;</span>));
+</code></pre>
+<p>e mude para a l&#xED;ngua desejada. As op&#xE7;&#xF5;es est&#xE3;o em <code>${SiGE}/public/js/jed/locale</code>.</p>
+<h3 id="certificados">Certificados</h3>
+<p>Os arquivos relativos aos certificados, participante e palestrante, ficam localizados
+em <code>${SiGE}/public/img/certificados/</code>. L&#xE1; teremos um diret&#xF3;rio <code>default/</code> que cont&#xE9;m
+arquivos iniciais para que um certificado possa ser gerado sem nenhuma configura&#xE7;&#xE3;o.</p>
+<p>Para criar certificados para um determinado encontro devemos criar um diret&#xF3;rio
+em <code>${SiGE}/public/img/certificados/</code> com o <code>id_encontro</code> do encontro. Por exemplo,
+se <code>id_encontro</code> for 1, criaremos o diret&#xF3;rio <code>${SiGE}/public/img/certificados/1/</code>.</p>
+<p>Utilize os arquivos <code>modelo.svg</code> e <code>assinatura-modelo.svg</code> dentro de <code>${SiGE}/public/img/certificados/default/</code>
+como modelos para a cria&#xE7;&#xE3;o de seus certificados. Eles possuem as marca&#xE7;&#xF5;es e os tamanhos
+espec&#xED;ficos. Os tamanhos s&#xE3;o:</p>
+<p><strong>Arquivo</strong>            <strong>Tamanho</strong></p>
+<hr>
+<p>modelo.svg             1052x744 (mesmo tamanho de uma folha A4 paisagem)
+assinatura-modelo.svg  250x140</p>
+<p><strong>obs.:</strong> o arquivo <code>modelo.svg</code> possui camadas para que ao trabalhar em cima do molde
+voc&#xEA; n&#xE3;o se atrapalhe com outros objetos. Usando Inkscape acesse as camadas com o comando
+<em>Shift + Ctrl + L</em>.</p>
+<p>Ap&#xF3;s finaliza&#xE7;&#xE3;o do modelo, exporte o arquivo para <strong>JPG</strong>. Como o Inkscape n&#xE3;o
+exporta diretamente para essa extens&#xE3;o, utilize o GIMP para essa tarefa.</p>
+<p>O certificado do SiGE suporta at&#xE9; tr&#xEA;s assinaturas. Para isso voc&#xEA; deve exportar o arquivo
+de assinatura da seguinte forma: <code>assinatura-1.png</code> - para que a assinatura apare&#xE7;a
+a esquerda do certificado, <code>assinatura-2.png</code> - para que a assinatura apare&#xE7;a no centro
+e <code>assinatura-3.png</code> - para que apare&#xE7;a a direita.</p>
+<p>As assinaturas s&#xE3;o opcionais e podem ser usadas da maneira que voc&#xEA; deseja. Por exemplo,
+se voc&#xEA; possui um certificado que tenha algum detalhes no centro voc&#xEA; pode optar por
+criar apenas as assinaturas <code>assinatura-1.png</code> e <code>assinatura-3.png</code>.</p>
+<p><strong>obs.:</strong> Note que o arquivo de assinaturas possui a extens&#xE3;o <strong>PNG</strong>. Por ser uma
+imagem pequena e que necessita de <em>alpha</em>, optamos por us&#xE1;-la.</p>
+<p>\newpage</p>
+<p>Abaixo uma simula&#xE7;&#xE3;o da &#xE1;rvore de diret&#xF3;rios <code>${SiGE}/public/img/certificados/</code>:</p>
+<pre><code>${SiGE}/public/img/certificados/
+|
++ -- 1/
+|    |
+|    + -- modelo.jpg
+|         assinatura-1.png
+|         assinatura-3.png
+|
++ -- default/
+     |
+     + -- modelo.jpg
+          modelo.svg
+          assinatura-modelo.png
+          assinatura-1.png
+</code></pre><h3 id="dados-do-evento">Dados do evento</h3>
+<p>A p&#xE1;gina inicial cont&#xE9;m os dados do evento. Para modificar os dados basta editar o arquivo
+<code>${SiGE}/public/js/index/index.js</code>.</p>
+<p>Nesse arquivo temos um objeto chamado <code>conference</code>, no qual voc&#xEA; vai descrever seu encontro.</p>
+<p>Comece editando o nome curto do encontro, juntamente com o nome completo, por exemplo:</p>
+<pre><code class="lang-javascript">short_name: <span class="hljs-string">&apos;COMSOLiD&apos;</span>,
+full_name: <span class="hljs-string">&apos;Comunidade Maracanauense de Software Livre e Inclus&#xE3;o Digital&apos;</span>,
+</code></pre>
+<h4 id="contagem-regressiva">Contagem Regressiva</h4>
+<p>Para modficar a data e os dados referentes a contagem regressiva que aparece na p&#xE1;gina
+inicial do SiGE, modifique os atributos <code>starts_at</code> e <code>ends_at</code>, por exemplo:</p>
+<pre><code class="lang-javascript">starts_at:  moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2014</span>, <span class="hljs-number">11</span>, <span class="hljs-number">16</span>, <span class="hljs-number">8</span>, <span class="hljs-number">0</span>)),
+ends_at:  moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2014</span>, <span class="hljs-number">11</span>, <span class="hljs-number">19</span>, <span class="hljs-number">17</span>, <span class="hljs-number">0</span>)),
+</code></pre>
+<p><strong>obs.:</strong> lembrando que em Javascript os meses v&#xE3;o de 0 a 11.</p>
+<pre><code>month
+    Integer value representing the month, beginning with 0 for January to 11 for December.
+</code></pre><p>Fonte: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</a></p>
+<h4 id="caracter%C3%ADsticas-do-encontro">Caracter&#xED;sticas do encontro</h4>
+<p>Defina as caracter&#xED;sticas ou <em>features</em> do seu encontro, por exemplo:</p>
+<pre><code class="lang-javascript">features: {
+    columns: <span class="hljs-number">3</span>,
+    list: [
+        {
+            title: <span class="hljs-string">&apos;Feature 1&apos;</span>,
+            description: <span class="hljs-string">&apos;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&apos;</span>,
+            icon: <span class="hljs-string">&apos;fa-graduation-cap&apos;</span>
+        },
+        {
+            title: <span class="hljs-string">&apos;Feature 2&apos;</span>,
+            description: <span class="hljs-string">&apos;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&apos;</span>,
+            icon: <span class="hljs-string">&apos;fa-gamepad&apos;</span>
+        },
+        {
+            title: <span class="hljs-string">&apos;Feature 3&apos;</span>,
+            description: <span class="hljs-string">&apos;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&apos;</span>,
+            icon: <span class="hljs-string">&apos;fa-desktop&apos;</span>
+        }
+    ]
+},
+</code></pre>
+<p>O atributo <code>columns</code> pode ter valor <code>2</code> ou <code>3</code>.
+Voc&#xEA; pode criar quantas <code>features</code> quiser adicionando ao atributo <code>list</code>.</p>
+<p>&#xC9; recomendado que voc&#xEA; crie no m&#xE1;ximo <code>6</code> features, para que n&#xE3;o polua muito a p&#xE1;gina.</p>
+<p>Os &#xED;cones s&#xE3;o do <em>toolkit</em> <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a>.
+Acesse o link <a href="https://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Icons</a> e veja as op&#xE7;&#xF5;es.</p>
+<h4 id="mapa">Mapa</h4>
+<p>Modifique as coordenadas do local onde acontecer&#xE1; seu encontro, por exemplo:</p>
+<pre><code class="lang-javascript">map: {
+    latitude: -<span class="hljs-number">3.87259</span>,
+    longitude: -<span class="hljs-number">38.610976</span>,
+    zoom: <span class="hljs-number">17</span>,
+    address: <span class="hljs-string">&apos;IFCE - Campus Maracana&#xFA; - Av. Parque Central...&apos;</span>
+}
+</code></pre>
+<p><strong>Obs.:</strong> Existem algumas pol&#xED;ticas de uso referentes ao OpenStreetMap (api usada para mostrar o mapa).
+Para um bom uso da api:</p>
+<ul>
+<li>Use somente <code>User-Agent</code> v&#xE1;lidos;</li>
+<li>N&#xE3;o envie cabe&#xE7;alhos <code>no-cache</code> (&quot;Cache-Control: no-cache&quot;, &quot;Pragma: no-cache&quot; etc);</li>
+<li>Fa&#xE7;a cache do <code>Tile</code> (<code>Tile</code> &#xE9; a imagem do mapa obitida atrav&#xE9;s da api, como o local n&#xE3;o deve mudar, esse recurso deve ficar em cache);</li>
+<li>No m&#xE1;ximo s&#xE3;o usadas duas threads de download.</li>
+</ul>
+<p>Browsers modernos com a configura&#xE7;&#xE3;o padr&#xE3;o geralmente passam por todas as especifica&#xE7;&#xF5;es acima.</p>
+<p>Refer&#xEA;ncia:</p>
+<ul>
+<li><a href="http://wiki.openstreetmap.org/wiki/Tile_usage_policy" target="_blank">http://wiki.openstreetmap.org/wiki/Tile_usage_policy</a></li>
+<li><a href="https://leanpub.com/leaflet-tips-and-tricks/read" target="_blank">https://leanpub.com/leaflet-tips-and-tricks/read</a></li>
+</ul>
+<h4 id="redes-sociais">Redes Sociais</h4>
+<p>A &#xFA;ltima p&#xE1;gina cont&#xE9;m os links para as redes sociais do seu encontro.
+Edite de acordo com o exemplo abaixo:</p>
+<pre><code class="lang-javascript">social_networks: [
+    {
+        url: <span class="hljs-string">&apos;https://twitter.com/comsolid&apos;</span>,
+        channel: <span class="hljs-string">&apos;twitter&apos;</span>
+    },
+    {
+        url: <span class="hljs-string">&apos;https://facebook.com/comsolid&apos;</span>,
+        channel: <span class="hljs-string">&apos;facebook&apos;</span>
+    },
+    {
+        url: <span class="hljs-string">&apos;https://github.com/comsolid&apos;</span>,
+        channel: <span class="hljs-string">&apos;github&apos;</span>
+    },
+],
+</code></pre>
+<p>Os bot&#xF5;es s&#xE3;o gerados usando o <a href="http://noizwaves.github.io/bootstrap-social-buttons/3/" target="_blank">Social Buttons 3</a>,
+utilize os nomes oferecidos pela api.</p>
+<h4 id="por-que-as-configura%C3%A7%C3%B5es-em-js-e-n%C3%A3o-no-banco-de-dados">Por que as configura&#xE7;&#xF5;es em JS e n&#xE3;o no banco de dados?</h4>
+<p>Voc&#xEA; pode estar se perguntado isso e a resposta &#xE9;:</p>
+<blockquote>
+<p>Essas configura&#xE7;&#xF5;es s&#xE3;o feitas apenas uma vez, e n&#xF3;s da COMSOLiD achamos que seria trabalhoso para o servidor ter que
+    carregar essas informa&#xE7;&#xF5;es do banco de dados cada vez que a p&#xE1;gina fosse acessada.</p>
+</blockquote>
+<h4 id="twitter">Twitter</h4>
+<p>No arquivo <code>${SiGE}/application/configs/application.ini</code>
+altere as linhas:</p>
+<pre><code class="lang-ini">twitter.username = &quot;els&quot;; sem &quot;@&quot;
+twitter.hashtags = &quot;els1&quot;; sem &quot;#&quot; e separadas por &quot;,&quot;
+</code></pre>
+<h3 id="layout-do-sistema">Layout do Sistema</h3>
+<p>Por usar o Twitter Bootstrap 3, fica mais f&#xE1;cil mudar o tema, ou at&#xE9; mesmo criar um.</p>
+<p>O SiGE suporta por padr&#xE3;o 3 temas:</p>
+<ul>
+<li><a href="http://getbootstrap.com/" target="_blank">Padr&#xE3;o</a></li>
+<li><a href="http://bootswatch.com/lumen/" target="_blank">Lumen</a></li>
+<li><a href="http://bootswatch.com/darkly/" target="_blank">Darkly</a></li>
+</ul>
+<p>Outros temas podem ser encontrados em <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>.</p>
+<p>Para editar o tema edite o arquivo <code>${SiGE}/application/layouts/twbs3.phtml</code>, procure pela linha:</p>
+<pre><code class="lang-php"><span class="hljs-variable">$this</span>-&gt;headLink()-&gt;prependStylesheet(
+    <span class="hljs-variable">$this</span>-&gt;baseUrl(<span class="hljs-string">&apos;lib/css/bootstrap/default/bootstrap.min.css&apos;</span>));
+</code></pre>
+<p>e mude <code>default</code> para <code>lumen</code> ou <code>darkly</code> ou ainda um tema que voc&#xEA; tenha baixado.</p>
+<p>Os temas devem ficar em <code>${SiGE}/lib/css/bootstrap/</code>.</p>
+<h3 id="banner-do-sistema">Banner do Sistema</h3>
+<p>Para alterar o banner geral basta substituir o arquivo <code>${SiGE}/public/imagens/layout/topo_sige.png</code>.
+As dimens&#xF5;es s&#xE3;o: <strong>962x135</strong>.</p>
+<h3 id="vers%C3%A3o-m%C3%B3vel">Vers&#xE3;o M&#xF3;vel</h3>
+<p>Edite o arquivo <code>application/layouts/scripts/mobile.phtml</code>:</p>
+<p>Linha 44: <code>&lt;h1&gt;COMSOLiD &lt;?=date(&apos;Y&apos;) ?&gt;&lt;/h1&gt;</code></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../sections/dev-docker.html" class="navigation navigation-next " aria-label="Next page: Desenvolvimento usando Docker"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
