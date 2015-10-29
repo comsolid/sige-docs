@@ -1,147 +1,6 @@
-# Instalação e Configuração
+# SiGE
 
-Programas necessários:
-
-* PostgreSQL;
-* Apache HTTP Server: `sudo apt-get install apache2`;
-* php5: `sudo apt-get install php5 php5-pgsql libapache2-mod-php5`;
-	* extensão intl: `sudo apt-get install php5-intl`;
-	* extensão GD: `sudo apt-get install php5-gd`;
-* Zend Framework;
-* git (opcional);
-
-## Base de dados
-
-### Schema da Base de dados
-
-A instalação da base de dados é feita pelo arquivo `ddl-schema.sql`. Abra o arquivo
-e defina alguns parâmetros:
-
-Encoding do servidor
-
-~~~sql
-SET client_encoding = 'LATIN1';
-~~~
-
-ou
-
-~~~sql
-SET client_encoding = 'UTF8';
-~~~
-
-Permissão ao usuário do banco de dados
-
-~~~sql
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-~~~
-
-Modifique `postgres` para seu usuário.
-
-Note que o script possui `START TRANSACTION;` e `ROLLBACK;`. Faça um teste inicial
-e execute o script para se certificar que tudo irá correr bem. Por fim substitua
-o comando `ROLLBACK;` por `COMMIT;` e execute novamente o script.
-
-#### Observação:
-
-Para PostgreSQL 9.2 para trás comentar a linha 12:
-
-~~~sql
-SET lock_timeout = 0;
-~~~
-
-Para isso basta colocar `--` no início, dessa forma:
-
-~~~sql
---SET lock_timeout = 0;
-~~~
-
-Esse comando faz parte das versões 9.3 para frente, mas não prejudica o uso de versões
-mais antigas.
-
-### Dados iniciais do sistema
-
-A inserção dos dados iniciais pode ser encontrada em `ddl-dados-iniciais.sql`.
-Modifique as tabelas `estado, instituicao, municipio e sala` de acordo com sua necessidade.
-
-**obs.:** para base de dados que usam codificação `LATIN1` utilize o script `ddl-dados-iniciais-latin1.sql`.
-
-As outras tabelas já estão devidamente preparadas.
-
-Teste a execução de script e remova `START TRANSACTION;` e `ROLLBACK;`.
-
-### Criando um novo encontro
-
-O primeiro passo para criar um encontro, e adicionar um registro na tabela `encontro`
-da seguinte forma:
-
-~~~sql
-INSERT INTO encontro(nome_encontro, apelido_encontro, data_inicio, data_fim,
-    periodo_submissao_inicio, periodo_submissao_fim)
-    VALUES ('I Encontro de Software Livre', 'I ESL', '2013-11-07', '2013-11-09',
-    '2013-05-01', '2013-11-06');
-~~~
-
-**obs.:** a coluna `ativo` será removida em breve.
-
-Depois verifique o `id_encontro` gerado e crie dois registros na tabela `mensagem_email`,
-um para cada mensagem de `tipo_mensagem_email`:
-
-~~~sql
-INSERT INTO mensagem_email(id_encontro, id_tipo_mensagem_email,
-		mensagem, assunto, link)
-    VALUES (1, 1, 'Nome: {nome}, E-mail: {email}, Senha: {senha},
-    	<a href="{href_link}" target="_blank">Clique aqui</a>',
-    	'I ESL - Cadastro Encontro',
-    	'http://www.esl.org/login');
-~~~
-
-**obs.:** Note que a `mensagem` traz elementos dentro de `{}`. Eles são utilizados no PHP
-para substiruir valores reais, tornando a mensagem dinâmica.
-
-Vale lembrar que a mensagem pode ser escrita em HTML. Coloque apenas tags referentes ao `body`.
-
-Outro ponto importante é configurar o *enconding* ao inserir um encontro e suas mensagens.
-Para isso adicione `SET client_encoding = 'LATIN1';` no início do *insert*.
-
-Da mesma forma crie a mensagem de recuperação de senha:
-
-~~~sql
-INSERT INTO mensagem_email(id_encontro, id_tipo_mensagem_email,
-		mensagem, assunto, link)
-    VALUES (1, 2, 'Nome: {nome}, E-mail: {email}, Senha: {senha},
-    	<a href="{href_link}" target="_blank">Clique aqui</a>',
-    	'I ESL - Recuperar Senha',
-    	'http://www.esl.org/login');
-~~~
-
-Por ser um exemplo, as mensagens ficaram uma muito parecida com a outra. Você deve adaptar
-de acordo com seu encontro.
-
-**obs.:** esse passo serve somente para o primeiro encontro. Os demais podem ser criados
-a partir do SiGE em `/adim/encontro/criar/`.
-
-## SiGE
-
-### Zend
-
-A versão utilizada pelo SiGE é [latest][latest].
-
-[latest]: http://framework.zend.com/downloads/latest#ZF1 "Zend "
-
-A instalação é bem simples. Basta copiarmos o Zend para um diretório de bibliotecas do sistema.
-Baixe o pacote Full, descompacte e siga as instruções em um terminal:
-
-~~~
-$ sudo su
-# mv ZendFramework-1.12.9 /usr/local/lib
-# cd /usr/local/lib
-# ln -s ZendFramework-1.12.9 zend
-~~~
-
-### Baixando SiGE do Github para desenvolvimento
+## Baixando SiGE do Github para desenvolvimento
 
 Para realizar clone da última versão do SiGE:
 
@@ -158,7 +17,7 @@ $ sudo apt-get install git
 **obs.:** instale a partir do repositório somente se você está interessado em contribuir,
 estudar o código ou apenas testando.
 
-### Baixando versão estável SiGE
+## Baixando uma versão estável SiGE
 
 Procure pela versão mais atual do SiGE em:
 
@@ -166,87 +25,47 @@ Procure pela versão mais atual do SiGE em:
 
 Renomeie a pasta para `sige` caso necessário.
 
-### Configurando VirtualHost
+## Instalando Dependências
 
-Para simular um host no mundo real que utiliza Zend precisamos criar um VirtualHost no apache.
-Com o Apache devidamente instalado, crie um arquivo em `/etc/apache2/sites-enable/`
-chamado `sige`. Nele copie o seguinte conteúdo, modificando conforme necessidade:
+A versão utilizada pelo SiGE é [latest][latest].
 
-~~~
-<VirtualHost *:80>
-   ServerName sige.local
+[latest]: http://framework.zend.com/downloads/latest#ZF1 "Zend latest"
 
-   DocumentRoot /var/www/sige/public
-   <Directory "/var/www/sige/public">
-      AllowOverride All
-   </Directory>
-</VirtualHost>
-~~~
-
-Adicionaremos o `ServerName` ao `/etc/hosts`:
+A instalação é do Zend é feita através do [Composer](https://getcomposer.org/). Baixe o composer
+dentro do diretório `@@sigedir`, e instale as dependências.
 
 ~~~
-127.0.0.1       localhost
-# adicione a linha abaixo
-127.0.0.1       sige.local
+cd @@sigedir
+php -r "readfile('https://getcomposer.org/installer');" | php
+php composer.phar install
 ~~~
 
-**Obs.:** este trecho deve ser feito apenas em ambiente de desenvolvimento.
-
-Habilite o `mod rewrite` do apache: `$ sudo a2enmod rewrite`.
-
-Reinicie o Apache: `$ sudo service apache2 restart`.
-
-### Instalar o Zend no SiGE
-
-A instalação é bem simples, apenas crie um link simbólico dentro do diretório do
-projeto (daqui para frente chamadado de `${SiGE}`) em `${SIGE}/library`:
-
-~~~
-$ sudo su
-# cd /var/www/sige/library
-# ln -s /usr/local/lib/zend/library/Zend
-~~~
-
-#### Observação:
-
-Caso você não tenha permissão para instalar bibliotecas no sistema, por exemplo se você contratou um
-serviço externo, você pode copiar o Zend diretamente na pasta `library` do SiGE. Faça:
-
-~~~
-$ cp -R /caminho/para/ZendFramework1.12.9/library/Zend ${SiGE}/library
-~~~
-
-Caso use FTP suba o diretório para o mesmo local.
-
-**TODO**: explicar instalação mpdf <http://mpdf1.com/manual/index.php?tid=509>
-
-### Permitir escrita para HTMLPurifier e Captcha
+## Permitir escrita para HTMLPurifier e Captcha
 
 É necessário dar permissão total a dois diretórios, faça:
 
 ~~~
-$ cd ${SiGE}/library/HTMLPurifier/DefinitionCache/
+$ cd @@sigedir/library/HTMLPurifier/DefinitionCache/
 $ mkdir Serializer
 $ chmod 777 Serializer/
-$ cd ${SiGE}/public/
+$ cd @@sigedir/public/
 $ mkdir captcha
 $ chmod 777 captcha/
 ~~~
 
-### Configurar SiGE para ambiente de produção
+## Configurar SiGE para ambiente de produção
 
 ~~~
-$ cd ${SiGE}/public
+$ cd @@sigedir/public
 $ nano .htaccess
 ~~~
 
 Mude `SetEnv APPLICATION_ENV development` para `SetEnv APPLICATION_ENV production`.
 
-### Configurar conexão com base de dados
+## Configurar conexão com base de dados
 
 Com o projeto configurado vamos editar os parâmetros de conexão com o PostgreSQL.
-Dentro do diretório do projeto abra o arquivo `${SiGE}/application/configs/application.ini`,
+Dentro do diretório do projeto abra o arquivo `@@sigedir/application/configs/application.ini`,
 copie os dados para a seção `[production]` (cole abaixo de `autoloaderNamespaces[] = "Sige"`)
 e edite os parâmetros abaixo:
 
@@ -257,10 +76,10 @@ resources.db.params.username = "postgres"
 resources.db.params.password = "**secret**"
 ~~~
 
-### Configurar SMTP para envio de e-mail
+## Configurar SMTP para envio de e-mail
 
 Temos também que configurar o envio de e-mail para validar participantes, recuperação de
-senhas, etc. Ainda no arquivo `${SiGE}/application/configs/application.ini`,
+senhas, etc. Ainda no arquivo `@@sigedir/application/configs/application.ini`,
 copie o trecho a seguir e cole logo abaixo dos dados da conexão com o banco. Edite o trecho:
 
 ~~~ini
@@ -289,10 +108,10 @@ Mais detalhes em [Zend_Mail][Zend_Mail].
 
 [Zend_Mail]: http://framework.zend.com/manual/1.12/en/zend.application.available-resources.html#zend.application.available-resources.mail "Zend_Mail"
 
-### Configurar Encontro
+## Configurar Encontro
 
 Após criar um encontro no banco de dados, temos um `id_encontro`. No arquivo
-`${SiGE}/application/configs/application.ini` edite a linha:
+`@@sigedir/application/configs/application.ini` edite a linha:
 
 ~~~ini
 encontro.codigo = 1
@@ -302,27 +121,27 @@ encontro.codigo = 1
 
 Mude o valor a cada novo encontro.
 
-### Crie o primeiro usuário administrador
+## Crie o primeiro usuário administrador
 
 Abra o SiGE no navegador e crie um usuário. Se tudo der certo um e-mail com uma
 senha padrão foi enviado para você. Tente fazer um login.
 
 No banco de dados, na tebela `pessoa`, modifique a coluna `administrador` para `true`.
 
-### Tradução (i18n)
+## Tradução (i18n)
 
-Para traduzir as mensagens do SiGE você deve editar o arquivo `${SiGE}/application/Bootstrap.php`.
+Para traduzir as mensagens do SiGE você deve editar o arquivo `@@sigedir/application/Bootstrap.php`.
 Na função `_initTranslate` edite a linha:
 
 ~~~php
 $locale = "pt_BR";
 ~~~
 
-Verifique as traduções disponíveis em `${SiGE}/application/langs`. Coloque em `$locale` o mesmo
+Verifique as traduções disponíveis em `@@sigedir/application/langs`. Coloque em `$locale` o mesmo
 nome do diretório da sua língua padrão.
 
 Para traduzir as mensagens que estão nos arquivos Javascript abra o arquivo
-`${SiGE}/application/layouts/scripts/twbs3.phtml`.
+`@@sigedir/application/layouts/scripts/twbs3.phtml`.
 
 Procure a linha:
 
@@ -330,19 +149,19 @@ Procure a linha:
 $this->headScript()->prependFile($this->baseUrl('js/jed/locale/pt_BR.js'));
 ~~~
 
-e mude para a língua desejada. As opções estão em `${SiGE}/public/js/jed/locale`.
+e mude para a língua desejada. As opções estão em `@@sigedir/public/js/jed/locale`.
 
-### Certificados
+## Certificados
 
 Os arquivos relativos aos certificados, participante e palestrante, ficam localizados
-em `${SiGE}/public/img/certificados/`. Lá teremos um diretório `default/` que contém
+em `@@sigedir/public/img/certificados/`. Lá teremos um diretório `default/` que contém
 arquivos iniciais para que um certificado possa ser gerado sem nenhuma configuração.
 
 Para criar certificados para um determinado encontro devemos criar um diretório
-em `${SiGE}/public/img/certificados/` com o `id_encontro` do encontro. Por exemplo,
-se `id_encontro` for 1, criaremos o diretório `${SiGE}/public/img/certificados/1/`.
+em `@@sigedir/public/img/certificados/` com o `id_encontro` do encontro. Por exemplo,
+se `id_encontro` for 1, criaremos o diretório `@@sigedir/public/img/certificados/1/`.
 
-Utilize os arquivos `modelo.svg` e `assinatura-modelo.svg` dentro de `${SiGE}/public/img/certificados/default/`
+Utilize os arquivos `modelo.svg` e `assinatura-modelo.svg` dentro de `@@sigedir/public/img/certificados/default/`
 como modelos para a criação de seus certificados. Eles possuem as marcações e os tamanhos
 específicos. Os tamanhos são:
 
@@ -370,12 +189,10 @@ criar apenas as assinaturas `assinatura-1.png` e `assinatura-3.png`.
 **obs.:** Note que o arquivo de assinaturas possui a extensão **PNG**. Por ser uma
 imagem pequena e que necessita de *alpha*, optamos por usá-la.
 
-\newpage
-
-Abaixo uma simulação da árvore de diretórios `${SiGE}/public/img/certificados/`:
+Abaixo uma simulação da árvore de diretórios `@@sigedir/public/img/certificados/`:
 
 ~~~
-${SiGE}/public/img/certificados/
+@@sigedir/public/img/certificados/
 |
 + -- 1/
 |    |
@@ -391,10 +208,10 @@ ${SiGE}/public/img/certificados/
           assinatura-1.png
 ~~~
 
-### Dados do evento
+## Dados do evento
 
 A página inicial contém os dados do evento. Para modificar os dados basta editar o arquivo
-`${SiGE}/public/js/index/index.js`.
+`@@sigedir/public/js/index/index.js`.
 
 Nesse arquivo temos um objeto chamado `conference`, no qual você vai descrever seu encontro.
 
@@ -405,7 +222,7 @@ short_name: 'COMSOLiD',
 full_name: 'Comunidade Maracanauense de Software Livre e Inclusão Digital',
 ~~~
 
-#### Contagem Regressiva
+### Contagem Regressiva
 
 Para modficar a data e os dados referentes a contagem regressiva que aparece na página
 inicial do SiGE, modifique os atributos `starts_at` e `ends_at`, por exemplo:
@@ -424,7 +241,7 @@ month
 
 Fonte: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>
 
-#### Características do encontro
+### Características do encontro
 
 Defina as características ou _features_ do seu encontro, por exemplo:
 
@@ -459,7 +276,7 @@ Você pode criar quantas `features` quiser adicionando ao atributo `list`.
 Os ícones são do _toolkit_ [FontAwesome](https://fortawesome.github.io/Font-Awesome/).
 Acesse o link [Icons](https://fortawesome.github.io/Font-Awesome/icons/) e veja as opções.
 
-#### Mapa
+### Mapa
 
 Modifique as coordenadas do local onde acontecerá seu encontro, por exemplo:
 
@@ -487,7 +304,7 @@ Referência:
 * <http://wiki.openstreetmap.org/wiki/Tile_usage_policy>
 * <https://leanpub.com/leaflet-tips-and-tricks/read>
 
-#### Redes Sociais
+### Redes Sociais
 
 A última página contém os links para as redes sociais do seu encontro.
 Edite de acordo com o exemplo abaixo:
@@ -512,16 +329,16 @@ social_networks: [
 Os botões são gerados usando o [Social Buttons 3](http://noizwaves.github.io/bootstrap-social-buttons/3/),
 utilize os nomes oferecidos pela api.
 
-#### Por que as configurações em JS e não no banco de dados?
+### Por que as configurações em JS e não no banco de dados?
 
 Você pode estar se perguntado isso e a resposta é:
 
 > Essas configurações são feitas apenas uma vez, e nós da COMSOLiD achamos que seria trabalhoso para o servidor ter que
     carregar essas informações do banco de dados cada vez que a página fosse acessada.
 
-#### Twitter
+### Twitter
 
-No arquivo `${SiGE}/application/configs/application.ini`
+No arquivo `@@sigedir/application/configs/application.ini`
 altere as linhas:
 
 ~~~ini
@@ -529,7 +346,7 @@ twitter.username = "els"; sem "@"
 twitter.hashtags = "els1"; sem "#" e separadas por ","
 ~~~
 
-### Layout do Sistema
+## Layout do Sistema
 
 Por usar o Twitter Bootstrap 3, fica mais fácil mudar o tema, ou até mesmo criar um.
 
@@ -541,7 +358,7 @@ O SiGE suporta por padrão 3 temas:
 
 Outros temas podem ser encontrados em [Bootswatch](http://bootswatch.com/).
 
-Para editar o tema edite o arquivo `${SiGE}/application/layouts/twbs3.phtml`, procure pela linha:
+Para editar o tema edite o arquivo `@@sigedir/application/layouts/twbs3.phtml`, procure pela linha:
 
 ~~~php
 $this->headLink()->prependStylesheet(
@@ -550,15 +367,14 @@ $this->headLink()->prependStylesheet(
 
 e mude `default` para `lumen` ou `darkly` ou ainda um tema que você tenha baixado.
 
-Os temas devem ficar em `${SiGE}/lib/css/bootstrap/`.
+Os temas devem ficar em `@@sigedir/lib/css/bootstrap/`.
 
-### Banner do Sistema
+## Imagens do Sistema
 
-Para alterar o banner geral basta substituir o arquivo `${SiGE}/public/imagens/layout/topo_sige.png`.
-As dimensões são: **962x135**.
+<!-- TODO: colocar os caminhos para todas as imagens que devem ser customizadas -->
 
-### Versão Móvel
+## Versão Móvel
 
-Edite o arquivo `application/layouts/scripts/mobile.phtml`:
+Edite o arquivo `@@sigedir/application/layouts/scripts/mobile.phtml`:
 
 Linha 44: `<h1>COMSOLiD <?=date('Y') ?></h1>`
