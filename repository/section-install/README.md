@@ -127,9 +127,9 @@ a partir do SiGE em `/adim/encontro/criar/`.
 
 ### Zend
 
-A versão utilizada pelo SiGE é [Zend 1.12.9][Zend_1.12.9].
+A versão utilizada pelo SiGE é [latest][latest].
 
-[Zend_1.12.9]: http://framework.zend.com/downloads/latest#ZF1 "Zend 1.12.9"
+[latest]: http://framework.zend.com/downloads/latest#ZF1 "Zend "
 
 A instalação é bem simples. Basta copiarmos o Zend para um diretório de bibliotecas do sistema.
 Baixe o pacote Full, descompacte e siga as instruções em um terminal:
