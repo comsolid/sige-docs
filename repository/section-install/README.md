@@ -125,22 +125,6 @@ a partir do SiGE em `/adim/encontro/criar/`.
 
 ## SiGE
 
-### Zend
-
-A versão utilizada pelo SiGE é [latest][latest].
-
-[latest]: http://framework.zend.com/downloads/latest#ZF1 "Zend "
-
-A instalação é bem simples. Basta copiarmos o Zend para um diretório de bibliotecas do sistema.
-Baixe o pacote Full, descompacte e siga as instruções em um terminal:
-
-~~~
-$ sudo su
-# mv ZendFramework-1.12.9 /usr/local/lib
-# cd /usr/local/lib
-# ln -s ZendFramework-1.12.9 zend
-~~~
-
 ### Baixando SiGE do Github para desenvolvimento
 
 Para realizar clone da última versão do SiGE:
@@ -165,6 +149,14 @@ Procure pela versão mais atual do SiGE em:
 <https://github.com/comsolid/sige/releases>
 
 Renomeie a pasta para `sige` caso necessário.
+
+### Instalando Dependên
+
+A versão utilizada pelo SiGE é [latest][latest].
+
+[latest]: http://framework.zend.com/downloads/latest#ZF1 "Zend latest"
+
+A instalação é do Zend é feita através do [Composer](https://getcomposer.org/).
 
 ### Configurando VirtualHost
 
