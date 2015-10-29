@@ -150,7 +150,7 @@ Procure pela versão mais atual do SiGE em:
 
 Renomeie a pasta para `sige` caso necessário.
 
-### Instalando Dependên
+### Instalando Dependências
 
 A versão utilizada pelo SiGE é [latest][latest].
 
