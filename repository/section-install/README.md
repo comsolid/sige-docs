@@ -1,4 +1,34 @@
-# Instalação e Configuração
+# Instalação
+
+## Método Docker
+
+Como requisito, basta instalar o [Docker](https://docs.docker.com/engine/installation/) e o [docker-compose](https://docs.docker.com/compose/install/).
+
+```sh
+# Clone ou baixe o repositório oficial do SiGE
+curl -LO https://github.com/comsolid/sige/archive/master.zip
+
+# Descompacte-o
+unzip master.zip
+
+# Entre na pasta sige-master
+cd sige-master
+
+# Rode o docker-compose para subir a stack completa
+docker-compose up
+```
+
+Neste momento, a stack já deve estar disponível para acesso via navegador.
+
+Acesse o endereço http://localhost:8080
+
+Use as seguintes credenciais para o usuário administrador padrão:
+
+* E-mail: esl@esl.org
+* Senha: 123456
+
+
+## Método Convencional
 
 Programas necessários:
 
@@ -9,6 +39,8 @@ Programas necessários:
 	* extensão GD: `sudo apt-get install php5-gd`;
 * Zend Framework;
 * git (opcional);
+
+# Configuração
 
 ## Base de dados
 
