@@ -8,19 +8,19 @@ Nesse caso precisamos alterar o endereço do PostgreSQL descrito no arquivo
 `./application/configs/application.ini` na seção `[development : production]`.  
 Edite o arquivo da seguinte maneira, troque de:
 
-```
+```text
 resources.db.params.host = "localhost"
 ```
 
 Para
 
-```
+```text
 resources.db.params.host = "pg"
 ```
 
 Esse endereço `pg` pode ser visto no arquivo `./docker-compose.yml`:
 
-```
+```text
 pg:
   image: sige/pg
 ```
@@ -33,7 +33,7 @@ algo assim.
 
 Em seguida edite o arquivo `/etc/hosts` adicionando ao final a linha:
 
-```
+```text
 172.17.42.1    sige.dev
 ```
 

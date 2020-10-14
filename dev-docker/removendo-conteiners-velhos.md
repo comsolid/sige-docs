@@ -1,4 +1,4 @@
-# Removendo conteiners velhos
+# Dicas Docker
 
 O Docker mantém os conteiners até que você explicitamente delete-os. Isto pode ser ruim, caso haja alguma mudança nas imagens dos serviços. Para limpar seu ambiente, siga as instruções a seguir:
 

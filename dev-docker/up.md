@@ -15,7 +15,7 @@ docker-compose build # faz build das imagens
 
 Para iniciar o sistema execute num terminal:
 
-```
+```text
 docker-compose up -d
 ```
 
@@ -23,15 +23,13 @@ Isso fará os 3 containers subirem como serviço - rodando em segundo plano. Ap�
 
 Para ver todos os logs basta executar:
 
-```
+```text
 docker-compose logs
 ```
 
 Para parar os todos serviços:
 
-```
+```text
 docker-compose stop
 ```
-
-
 
